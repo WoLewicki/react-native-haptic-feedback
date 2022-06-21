@@ -30,7 +30,6 @@ RCT_EXPORT_METHOD(trigger:(NSString *)type options:(NSDictionary *)options)
     BOOL enableVibrateFallback = [[options objectForKey:@"enableVibrateFallback"]boolValue];
     
     if ([self supportsHaptic]){
-        
         if ([type isEqual: @"impactLight"]) {
             [self generateImpactFeedback:UIImpactFeedbackStyleLight];
         } else if ([type isEqual:@"impactMedium"]) {
@@ -54,12 +53,13 @@ RCT_EXPORT_METHOD(trigger:(NSString *)type options:(NSDictionary *)options)
     } else if ([self supportsHapticFor6SAnd6SPlus]) {
         
         // generates alternative haptic feedback
-        if ([type isEqual: @"selection"]) {
-            AudioServicesPlaySystemSound((SystemSoundID) 1519);
-        } else if ([type isEqual: @"impactMedium"]) {
+        if ([type isEqual: @"impactMedium"]) {
             AudioServicesPlaySystemSound((SystemSoundID) 1520);
         } else if ([type isEqual:@"notificationWarning"]) {
             AudioServicesPlaySystemSound((SystemSoundID) 1521);
+        } else {
+            // default "selection"
+            AudioServicesPlaySystemSound((SystemSoundID) 1519);
         }
         
     } else if (enableVibrateFallback) {

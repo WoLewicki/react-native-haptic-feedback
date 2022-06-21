@@ -1,9 +1,9 @@
 {
   "name": "react-native-haptic-feedback",
-  "version": "1.13.1",
+  "version": "2.0.0",
   "description": "Basic haptic feedback for iOS and android",
   "license": "MIT",
-  "main": "index.js",
+  "main": "lib/index.js",
   "nativePackage": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,6 +21,10 @@
   "peerDependencies": {
     "react-native": ">=0.60.0"
   },
+  "devDependencies": {
+    "@types/react-native": "^0.67.9",
+    "react-native": "0.68.2"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -32,5 +36,8 @@
   "readme": "https://github.com/mkuczera/react-native-haptic-feedback#readme",
   "bugs": {
     "url": "https://github.com/mkuczera/react-native-haptic-feedback/issues"
+  },
+  "dependencies": {
+    "typescript": "^4.7.4"
   }
 }
